@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ExpressionBlendVersion>12.0.50716.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>{7d708522-cc08-48f5-befe-d54246d1e18f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{557b05e0-df37-4c65-8484-4be4e94173bf}</UniqueIdentifier>
+      <Extensions>bmp;fbx;gif;jpg;jpeg;tga;tiff;tif;png</Extensions>
+    </Filter>
+    <Filter Include="DataModel">
+      <UniqueIdentifier>{1387d834-5eaa-4e0a-b33e-bf3891eb178e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings">
+      <UniqueIdentifier>{45fd55af-fadd-40e6-a4b9-095384f8410e}</UniqueIdentifier>
+    </Filter>
+    <Image Include="Assets\Logo.scale-240.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SmallLogo.scale-240.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-240.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square71x71Logo.scale-240.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-240.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\WideLogo.scale-240.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <None Include="Common\ReadMe.txt">
+      <Filter>Common</Filter>
+    </None>
+    <ClCompile Include="Common\NavigationHelper.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\RelayCommand.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\SuspensionManager.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClInclude Include="Common\NavigationHelper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\RelayCommand.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\SuspensionManager.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <Filter Include="Strings\zh-CN">
+      <UniqueIdentifier>{5810935c-f4c5-4855-bccc-4ed2dbb9bdc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util">
+      <UniqueIdentifier>{72651791-8b20-43a0-b291-217a4f64048b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Misc">
+      <UniqueIdentifier>{e5771795-bd57-41f7-ace4-02ed6de3ca68}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App.xaml.cpp" />
+    <ClCompile Include="ItemPage.xaml.cpp" />
+    <ClCompile Include="PivotPage.xaml.cpp" />
+    <ClCompile Include="DataModel\HomePageDataSouce.cpp">
+      <Filter>DataModel</Filter>
+    </ClCompile>
+    <ClCompile Include="DataModel\ThreadListPageDataSource.cpp">
+      <Filter>DataModel</Filter>
+    </ClCompile>
+    <ClCompile Include="PostListPage.xaml.cpp" />
+    <ClCompile Include="ThreadListPage.xaml.cpp" />
+    <ClCompile Include="DataModel\PostListPageDataSource.cpp">
+      <Filter>DataModel</Filter>
+    </ClCompile>
+    <ClCompile Include="DataModel\DataParseHelper.cpp">
+      <Filter>DataModel</Filter>
+    </ClCompile>
+    <ClCompile Include="AttachedProperty.cpp" />
+    <ClCompile Include="PostListPageRender.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="HttpControllor.cpp">
+      <Filter>DataModel</Filter>
+    </ClCompile>
+    <ClCompile Include="AboutDialog.xaml.cpp" />
+    <ClCompile Include="TestPage.xaml.cpp" />
+    <ClCompile Include="GestureRecognizerHandler.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="App.xaml.h" />
+    <ClInclude Include="ItemPage.xaml.h" />
+    <ClInclude Include="PivotPage.xaml.h" />
+    <ClInclude Include="DataModel\HomePageDataSouce.h">
+      <Filter>DataModel</Filter>
+    </ClInclude>
+    <ClInclude Include="DataModel\ThreadListPageDataSource.h">
+      <Filter>DataModel</Filter>
+    </ClInclude>
+    <ClInclude Include="PostListPage.xaml.h" />
+    <ClInclude Include="ThreadListPage.xaml.h" />
+    <ClInclude Include="DataModel\PostListPageDataSource.h">
+      <Filter>DataModel</Filter>
+    </ClInclude>
+    <ClInclude Include="DataModel\DataParseHelper.h">
+      <Filter>DataModel</Filter>
+    </ClInclude>
+    <ClInclude Include="AttachedProperty.h" />
+    <ClInclude Include="PostListPageRender.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="PostListPageRenderConst.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="HttpControllor.h">
+      <Filter>DataModel</Filter>
+    </ClInclude>
+    <ClInclude Include="AboutDialog.xaml.h" />
+    <ClInclude Include="TestPage.xaml.h" />
+    <ClInclude Include="GestureRecognizerHandler.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="ItemPage.xaml" />
+    <Page Include="PivotPage.xaml" />
+    <Page Include="ThreadListPage.xaml" />
+    <Page Include="PostListPage.xaml" />
+    <Page Include="TestPage.xaml" />
+    <Page Include="AboutDialog.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\zh-CN\Resources.resw">
+      <Filter>Strings\zh-CN</Filter>
+    </PRIResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\StoreLogo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-140.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Logo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square71x71Logo.scale-140.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square71x71Logo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Logo.scale-140.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\WideLogo.scale-140.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\WideLogo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SmallLogo.scale-140.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SmallLogo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-140.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <Filter>Misc</Filter>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Package.StoreAssociation.xml" />
+  </ItemGroup>
+</Project>

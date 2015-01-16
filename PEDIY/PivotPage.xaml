@@ -1,0 +1,179 @@
+﻿<Page
+    x:Class="PEDIY.PivotPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PEDIY"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:PEDIY.Data"
+    mc:Ignorable="d"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}">
+
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <CommonNavigationTransitionInfo IsStaggeringEnabled="True"/>
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+
+    <Grid>
+        <Pivot 
+            x:Name="m_PivotControl" 
+            x:Uid="PivotControl" 
+            CommonNavigationTransitionInfo.IsStaggerElement="True">
+
+            <!--Pivot item home-->
+            <PivotItem 
+                x:Name="m_PivotItemHome"
+                x:Uid="PivotItem_Home"
+                Margin="19,0,19,0"
+                Header="home"
+                Loaded="PivotItemHome_Loaded"
+                DataContext="{Binding HomePageData}">
+
+                <Grid>
+                    <UserControl local:StatusBarProgressIndicatorControllor.Run="{Binding DataLoadDone}" />
+                    <!-- Build-in Grouping This method doesnt work 
+					<ProgressBar x:Name="ProgressBarControl" Height="10" Margin="0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Top" IsIndeterminate="True" Visibility="{Binding DataLoadDone}"/>
+					<PivotItem.Resources>
+						<CollectionViewSource 
+							x:Key="GroupedForumsViewSource" 
+							Source="{Binding ForumGroupList}"
+							IsSourceGrouped="True"
+							ItemsPath="ForumList"/>
+					</PivotItem.Resources>
+					<ListView
+						ItemsSource="{Binding Source={StaticResource GroupedForumsViewSource}}"
+						Loaded="PivotItemHome_Loaded"
+						SelectionMode="None" HorizontalContentAlignment="Stretch">
+                    
+						<ListView.GroupStyle>
+							<GroupStyle HidesIfEmpty="False">
+								<GroupStyle.HeaderContainerStyle>
+									<Style TargetType="ListViewHeaderItem">
+										<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+									</Style>
+								</GroupStyle.HeaderContainerStyle>
+								<GroupStyle.HeaderTemplate>
+									<DataTemplate>
+										<Border CornerRadius="0" BorderBrush="#FFCDFB00" Background="#FF97D0FF">
+											<TextBlock 
+												Text="{Binding ForumGroupName}"
+												Pivot.SlideInAnimationGroup="GroupOne"
+												Style="{StaticResource GroupHeaderTextBlockStyle}"
+												FontSize="20" Foreground="White"/>
+										</Border>
+									</DataTemplate>
+								</GroupStyle.HeaderTemplate>
+							</GroupStyle>
+						</ListView.GroupStyle>
+
+						<ListView.ItemContainerStyle>
+							<Style TargetType="ListViewItem">
+								<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+							</Style>
+						</ListView.ItemContainerStyle>
+						<ListView.ItemTemplate>
+							<DataTemplate>
+								<StackPanel>
+									<TextBlock
+										Text="{Binding ForumName}"
+										Pivot.SlideInAnimationGroup="GroupTwo"
+										CommonNavigationTransitionInfo.IsStaggerElement="True"
+										Style="{StaticResource ListViewItemTextBlockStyle}"
+										FontSize="30"/>
+								</StackPanel>
+							</DataTemplate>
+						</ListView.ItemTemplate>
+					</ListView> -->
+
+                    <!-- Nested listview -->
+                    <ListView
+						IsItemClickEnabled="False"
+                        ItemsSource="{Binding ForumGroupList}"
+                        SelectionMode="None">
+
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ListView 
+                                    ItemsSource="{Binding ForumList}"
+									IsItemClickEnabled="True"
+                                    ItemClick="ForumListView_ItemClick"
+                                    ContinuumNavigationTransitionInfo.ExitElementContainer="True" 
+                                    SelectionMode="Single" 
+                                    HorizontalContentAlignment="Stretch" IsActiveView="False">
+                                    <ListView.Header>
+                                        <Border CornerRadius="0" BorderBrush="#E2E7F0" Background="#415881">
+                                            <TextBlock 
+												Text="{Binding ForumGroupName}"
+												Pivot.SlideInAnimationGroup="GroupOne"
+												Style="{StaticResource GroupHeaderTextBlockStyle}"
+												FontSize="20"/>
+                                        </Border>
+                                    </ListView.Header>
+
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <TextBlock
+                                                    Text="{Binding ForumName}"
+                                                    Pivot.SlideInAnimationGroup="GroupTwo"
+                                                    CommonNavigationTransitionInfo.IsStaggerElement="True"
+                                                    Style="{StaticResource ListViewItemTextBlockStyle}"
+                                                    FontSize="30"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </PivotItem>
+
+            <!--Pivot item two profile
+            <PivotItem
+                x:Name="m_PivotItemProfile"
+                x:Uid="PivotItem_Profile"
+                Margin="19,14.5,19,0"
+                Header="profile"
+                Loaded="PivotItemProfile_Loaded"
+                DataContext="{Binding ProfilePageData}">
+            </PivotItem>
+             -->
+            
+        </Pivot>
+        <ContentDialog x:Name="aboutDialog" Opacity="0.8">
+            <Border BorderThickness="1" 
+                BorderBrush="White" 
+                Background="#FF171717" 
+             Margin="0,150,0,0" 
+              Height="300">
+            <StackPanel>
+                    <TextBlock x:Uid="AboutTitle" HorizontalAlignment="Center" Margin="0,10" Text="PEDIY" />
+                    <Image Stretch="None" Source="Assets/StoreLogo.png" Margin="0,10" />
+                    <TextBlock x:Uid="AboutDescription" TextWrapping="WrapWholeWords" Margin="0,10" />
+                    <TextBlock x:Uid="AboutCopyright" HorizontalAlignment="Center" Margin="0,10" />
+                </StackPanel>
+            </Border>
+        </ContentDialog>
+       
+    </Grid>
+    <Page.BottomAppBar>
+        <CommandBar Opacity="0.95" ClosedDisplayMode="Minimal">
+            <AppBarButton x:Uid="AppBarButton_Refresh" x:Name="BottomCmdBar_Refresh" Label="refresh" Icon="Refresh" Click="BottomCmdBar_Refresh_Click" />
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Uid="SecondaryButton_About" Label="About" Click="BottomCmdBar_About_Click"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+</Page>

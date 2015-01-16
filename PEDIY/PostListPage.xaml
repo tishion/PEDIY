@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="PEDIY.PostListPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PEDIY"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" 
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}">
+    <Page.Foreground>
+        <SolidColorBrush Color="{ThemeResource TextBoxForegroundColor}"/>
+    </Page.Foreground>
+    <Page.Background>
+        <SolidColorBrush Color="#FFFFFF"/>
+    </Page.Background>
+
+    <Grid x:Name="LayoutRoot" DataContext="{Binding PostListData}">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <!--TODO: Content should be placed within the following grid-->
+        <Grid x:Name="ContentRoot">
+            <UserControl local:StatusBarProgressIndicatorControllor.Run="{Binding DataLoadDone}" />
+            <WebView x:Name="MainWebView" local:WebViewDocument.HtmlSource="{Binding HtmlSource}"></WebView>
+        </Grid>
+    </Grid>
+
+    <Page.BottomAppBar>
+        <CommandBar Opacity="0.8" ClosedDisplayMode="Minimal">
+            <AppBarButton x:Uid="AppBarButton_Previous" Icon="Previous" Label="first page" Click="BottomAppBar_FirstPageButton_Click"/>
+            <AppBarButton x:Uid="AppBarButton_Back" Icon="Back" Label="page up" Click="BottomAppBar_PageUpButton_Click"/>
+            <AppBarButton x:Uid="AppBarButton_Forward" Icon="Forward" Label="page down" Click="BottomAppBar_PageDownButton_Click"/>
+            <AppBarButton x:Uid="AppBarButton_Next" Icon="Next" Label="last page" Click="BottomAppBar_LastPageButton_Click"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>
